@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('prodi');
             $table->string('jurusan');
             $table->integer('tahunMasuk');
-            $table->decimal('ipk');
+            $table->integer('ipk');
             $table->integer('alpha');
             $table->integer('sertifikat');
             $table->integer('spk');
