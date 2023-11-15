@@ -21,7 +21,7 @@ class mhsSeed extends Seeder
             'ipk' => '5',
             'alpha' => '1',
             'sertifikat' => '3',
-            'spk' => '0',
+            'spk' => 0,
             'username' => '',
             'password' => '',
         ]);
@@ -35,7 +35,7 @@ class mhsSeed extends Seeder
             'ipk' => '2',
             'alpha' => '6',
             'sertifikat' => '4',
-            'spk' => '0',
+            'spk' => 0,
             'username' => '',
             'password' => '',
         ]);
@@ -49,7 +49,7 @@ class mhsSeed extends Seeder
             'ipk' => '12',
             'alpha' => '2',
             'sertifikat' => '6',
-            'spk' => '0',
+            'spk' => 0,
             'username' => '',
             'password' => '',
         ]);
@@ -63,7 +63,7 @@ class mhsSeed extends Seeder
             'ipk' => '3',
             'alpha' => '7',
             'sertifikat' => '6',
-            'spk' => '0',
+            'spk' => 0,
             'username' => '',
             'password' => '',
         ]);
@@ -77,7 +77,7 @@ class mhsSeed extends Seeder
             'ipk' => '3',
             'alpha' => '2',
             'sertifikat' => '6',
-            'spk' => '0',
+            'spk' => 0,
             'username' => '',
             'password' => '',
         ]);
@@ -91,7 +91,7 @@ class mhsSeed extends Seeder
             'ipk' => '4',
             'alpha' => '2',
             'sertifikat' => '2',
-            'spk' => '0',
+            'spk' => 0,
             'username' => '',
             'password' => '',
         ]);
@@ -105,7 +105,7 @@ class mhsSeed extends Seeder
             'ipk' => '5',
             'alpha' => '1',
             'sertifikat' => '2',
-            'spk' => '0',
+            'spk' => 0,
             'username' => '',
             'password' => '',
         ]);

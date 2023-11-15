@@ -10,6 +10,8 @@ class api_data extends Model
 {
     use HasFactory;
 
+    // protected $primaryKey = 'id';
+
     protected $fillable = [
         'nama','nim','prodi','jurusan','tahunMasuk','alpha','ipk','sertifikat','spk','username','password'
     ];

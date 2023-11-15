@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('ipk');
             $table->integer('alpha');
             $table->integer('sertifikat');
-            $table->integer('spk');
+            $table->decimal('spk');
             $table->string('username');
             $table->string('password');
             $table->timestamps();
