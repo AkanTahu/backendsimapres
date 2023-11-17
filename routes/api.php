@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post("all_data",[APIController::class, "index"]);
 Route::post("top5_data",[APIController::class, "top5"]);
+Route::post("login_mhs",[APIController::class, "login"]);
 Route::post("create_data",[APIController::class, "store"]);
 Route::post("show_data",[APIController::class, "show"]);
 Route::post("edit_data",[APIController::class, "edit"]);

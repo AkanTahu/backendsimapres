@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\api_data;
 use Illuminate\Http\Request;
+use Validator;
+use Illuminate\Support\Facades\Auth;
+use illuminate\Support\Facades\DB;
+use App\Models\api_data;
 
+$nim_mhs = '';
 
 class APIController extends Controller
 {
@@ -25,9 +28,16 @@ class APIController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function login(Request $request)
     {
-        //
+        $username = $request->username;
+        $password = $request->password;
+        $data = api_data::where('username','=',$username)->
+        where('password','=',$password)->get('nim');
+
+        $nim_mhs = $data;
+
+        return $data;
     }
 
     /**
@@ -88,11 +98,6 @@ class APIController extends Controller
     public function updateAkun(Request $request)
     {
         $nim = $request->nim;
-        // $data = api_data::where($nim);
-        // $data->username = $request->input('username');
-        // $data->password = $request->input('password');
-        // $data->update();
-        // return "work update";
         api_data::where('nim',$nim)
                 ->update(['username' => $request->username,'password' => $request->password]);
     }
