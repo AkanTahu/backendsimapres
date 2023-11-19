@@ -16,16 +16,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-1">
-                <h3>Form Tambah Mahasiswa</h3>
-                <form action="/tambah" method="post">
+                <h3>Form Edit Mahasiswa</h3>
+                <form method="post" action="/data/{{ $datamhs->id }}">
+                    @method('put')
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama Mahasiswa</label>
-                        <input class="form-control" type="text" name="nama" id="name" placeholder="Masukkan Nama Siswa">
+                        <input class="form-control" type="text" name="nama" id="name" value="{{ $datamhs->nama }}">
                     </div>
                     <div class="form-group">
                         <label for="nim">NIM</label>
-                        <input class="form-control" type="text" name="nim" id="nim" placeholder="masukkan Nama nim">
+                        <input class="form-control" type="text" name="nim" id="nim" value="{{ $datamhs->nim }}">
                     </div>
                     <div class="form-group">
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="jurusan" id="jurusan">
@@ -41,10 +42,10 @@
                     </div>
                     <div class="form-group">
                         <label for="angkatan">Progam Studi</label>
-                        <input class="form-control" type="text" name="prodi" id="prodi" placeholder="masukkan Prodi">
+                        <input class="form-control" type="text" name="prodi" id="prodi" value="{{ $datamhs->prodi }}">
                     </div>
                     <div class="form-group">
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  name="tahunMasuk" id="tahunMasuk">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  name="tahunMasuk"  id="tahunMasuk">
                             <option selected>Pilih Tahun Masuk</option>
                             <option value=20>20</option>
                             <option value=21>21</option>
@@ -54,11 +55,11 @@
                         </div>
                     <div class="form-group">
                         <label for="kelas">IPK</label>
-                        <input class="form-control" type="text" name="ipk" id="ipk" placeholder="masukkan ipk">
+                        <input class="form-control" type="text" name="ipk" id="ipk" placeholder="masukkan ipk" value="{{ $datamhs->ipk }}">
                     </div>
                     <div class="form-group">
                         <label for="kelas">Ketidak Hadiran (Alpha)</label>
-                        <input class="form-control" type="text" name="alpha" id="alpha" placeholder="masukkan alpha">
+                        <input class="form-control" type="text" name="alpha" id="alpha" placeholder="masukkan alpha" value="{{ $datamhs->alpha }}">
                     </div>
                     <div class="form-group float-right">
                         <button class="btn btn-lg btn-danger" type="reset">Reset</button>

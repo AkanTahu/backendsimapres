@@ -10,11 +10,11 @@
 </head>
 <body>
     <div class="image">
-        <img src="/SIMAPRESputih.png" alt="">
+        <a href="/"><img src="/SIMAPRESputih.png" alt=""></a>
     </div>
     <div class="button">
         <a href="/inputData" class="btn btn-primary btn-lg">Input Data Mahasiswa</a>
-        <a  class="btn btn-primary btn-lg">Edit Data Mahasiswa</a>
+        <a href="/data" class="btn btn-primary btn-lg">Edit Data Mahasiswa</a>
     </div>
     
 

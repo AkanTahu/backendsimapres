@@ -9,13 +9,17 @@ body{
     color:aliceblue;
 }
 
+tr,th,td{
+    color: aliceblue;
+}
+
 .form-group{
     margin-top: 4%;
 }
-
-.image{
+ .image{
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .button a{

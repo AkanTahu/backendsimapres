@@ -21,5 +21,9 @@ Route::get('/inputData', function () {
     return view('inputData');
 });
 
+Route::get('/data', [Controller::class, 'showDatamhs']);
+Route::get('/data/{id}', [Controller::class, 'editmhs']);
+Route::put('/data/{id}', [Controller::class, 'updateDatamhs']);
+Route::delete('/data/{id}', [Controller::class, 'hapus']);
 Route::post('/tambah', [Controller::class, 'createmhs']);
 
