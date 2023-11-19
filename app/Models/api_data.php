@@ -15,4 +15,10 @@ class api_data extends Model
     protected $fillable = [
         'nama','nim','prodi','jurusan','tahunMasuk','alpha','ipk','sertifikat','spk','username','password'
     ];
+
+    public function sertifikats()
+    {
+        return $this->hasMany(sertifikat::class,'nim_mhs','nim');
+    }
+
 }

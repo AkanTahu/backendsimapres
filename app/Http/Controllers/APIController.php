@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Validator;
-use Illuminate\Support\Facades\Auth;
+use App\Models\sertifikat;
 use illuminate\Support\Facades\DB;
+use Illuminate\Http\JsonResponse;
 use App\Models\api_data;
 
-$nim_mhs = '';
+
 
 class APIController extends Controller
 {
+    public $nim_mahasiswa;
     /**
      * Display a listing of the resource.
      */
@@ -33,11 +34,11 @@ class APIController extends Controller
         $username = $request->username;
         $password = $request->password;
         $data = api_data::where('username','=',$username)->
-        where('password','=',$password)->get('nim');
+        where('password','=',$password)->first();
 
-        $nim_mhs = $data;
+        $this->nim_mahasiswa = $data->nim;
 
-        return $data;
+        return $this->nim_mahasiswa;
     }
 
     /**
@@ -58,6 +59,19 @@ class APIController extends Controller
         $save->save();
 
         // return "work save";
+    }
+    
+    public function makeSertif(Request $request){
+        $save = new sertifikat;
+        $save->nim_mhs = $this->nim_mahasiswa;
+        $save->namaSertif = $request->namaSertif;
+        $save->tingkatSertif = $request->tingkatSertif;
+        $save->juaraSertif = $request->juaraSertif;
+        $save->tanggalSertif = $request->tanggalSertif;
+        $save->gambarSertif = $request->gambarSertif;
+        $save->cek = $request->cek;
+        $save->save();
+        
     }
 
     /**
