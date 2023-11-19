@@ -9,6 +9,7 @@ use App\Models\api_data;
 
 
 
+
 class APIController extends Controller
 {
     public $nim_mahasiswa;
