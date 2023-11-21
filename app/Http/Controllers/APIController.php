@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\sertifikat;
-use illuminate\Support\Facades\DB;
-use Illuminate\Http\JsonResponse;
 use App\Models\api_data;
-
-
+use App\Models\sertifikat;
+use Illuminate\Http\Request;
+// use Illuminate\Http\JsonResponse;
+// use illuminate\Support\Facades\DB;
+// use Symfony\Component\HttpFoundation\Response;
+// use Symfony\Component\HttpFoundation\Cookie;
+// use Symfony\Component\HttpFoundation\Cookie;
 
 
 class APIController extends Controller
@@ -16,6 +17,10 @@ class APIController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function test(){
+        return $this->nim_mahasiswa;
+    }
+
     public function index()
     {
         $data = api_data::all();
@@ -30,16 +35,36 @@ class APIController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    // public function setCookie()
+    //     {
+    //         $cookieValue = 'Hello, Laravel 10 Cookies!';
+    //         $cookie = cookie('cookie_name', $cookieValue, $minutes = 60);
+            
+    //         return response()
+    //             ->withCookie($cookie);
+    //     }
+
     public function login(Request $request)
     {
         $username = $request->username;
         $password = $request->password;
         $data = api_data::where('username','=',$username)->
         where('password','=',$password)->first();
+        $nim_mahasiswa =$data->nim;
+        // $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
+        return response()
+            ->json(['success' => "logged in"], 200)   // JsonResponse object
+            ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
 
-        $this->nim_mahasiswa = $data->nim;
+        // $minutes = 60;
+        // $response = new Illuminate\Http\Response('Hello World');
+        // $response->withCookie(cookie('name', 'MyValue', $minutes));
+        // return $response;
 
-        return $this->nim_mahasiswa;
+        // $this->nim_mahasiswa = $data->nim;
+
+        // return $this->nim_mahasiswa;
+        // return 'logged in';
     }
 
     /**
@@ -63,14 +88,14 @@ class APIController extends Controller
     }
     
     public function makeSertif(Request $request){
+        $nim = $request->cookie('nim');
         $save = new sertifikat;
-        $save->nim_mhs = $this->nim_mahasiswa;
+        $save->nim_mhs = $nim;
         $save->namaSertif = $request->namaSertif;
         $save->tingkatSertif = $request->tingkatSertif;
         $save->juaraSertif = $request->juaraSertif;
         $save->tanggalSertif = $request->tanggalSertif;
         $save->gambarSertif = $request->gambarSertif;
-        $save->cek = $request->cek;
         $save->save();
         
     }
