@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('sertifikats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('nim_mhs');
-            $table->string('namaSertif');
-            $table->string('tingkatSertif');
-            $table->string('juaraSertif');
-            $table->string('tanggalSertif');
-            $table->string('gambarSertif');
+            $table->string('namaSertif')->default('');
+            $table->string('tingkatSertif')->default('');
+            $table->string('juaraSertif')->default('');
+            $table->string('tanggalSertif')->default('');
+            $table->string('gambarSertif')->default('');
             $table->integer('cek')->default('0');
             $table->timestamps();
         });

@@ -36,8 +36,8 @@ class mhsSeed extends Seeder
             'alpha' => '6',
             'sertifikat' => '4',
             'spk' => 0,
-            'username' => '',
-            'password' => '',
+            'username' => 'a',
+            'password' => '1',
         ]);
 
         api_data::create([
@@ -50,8 +50,8 @@ class mhsSeed extends Seeder
             'alpha' => '2',
             'sertifikat' => '6',
             'spk' => 0,
-            'username' => '',
-            'password' => '',
+            'username' => 'b',
+            'password' => '1',
         ]);
 
         api_data::create([

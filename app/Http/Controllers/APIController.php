@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\api_data;
 use App\Models\sertifikat;
 use Illuminate\Http\Request;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 // use Illuminate\Http\JsonResponse;
 // use illuminate\Support\Facades\DB;
 // use Symfony\Component\HttpFoundation\Response;
@@ -13,13 +15,9 @@ use Illuminate\Http\Request;
 
 class APIController extends Controller
 {
-    public $nim_mahasiswa;
     /**
      * Display a listing of the resource.
      */
-    public function test(){
-        return $this->nim_mahasiswa;
-    }
 
     public function index()
     {
@@ -50,21 +48,18 @@ class APIController extends Controller
         $password = $request->password;
         $data = api_data::where('username','=',$username)->
         where('password','=',$password)->first();
-        $nim_mahasiswa =$data->nim;
+        $nim_mahasiswa = $data->nim;
+
+        $masuk = new sertifikat;
+        $masuk->nim_mhs = $nim_mahasiswa;
+        $masuk->save();
+
+        return $nim_mahasiswa;
         // $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
-        return response()
-            ->json(['success' => "logged in"], 200)   // JsonResponse object
-            ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
+        // return response()
+        //     ->json(['success' => "logged in"], 200)   // JsonResponse object
+        //     ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
 
-        // $minutes = 60;
-        // $response = new Illuminate\Http\Response('Hello World');
-        // $response->withCookie(cookie('name', 'MyValue', $minutes));
-        // return $response;
-
-        // $this->nim_mahasiswa = $data->nim;
-
-        // return $this->nim_mahasiswa;
-        // return 'logged in';
     }
 
     /**
@@ -88,15 +83,26 @@ class APIController extends Controller
     }
     
     public function makeSertif(Request $request){
-        $nim = $request->cookie('nim');
-        $save = new sertifikat;
-        $save->nim_mhs = $nim;
-        $save->namaSertif = $request->namaSertif;
-        $save->tingkatSertif = $request->tingkatSertif;
-        $save->juaraSertif = $request->juaraSertif;
-        $save->tanggalSertif = $request->tanggalSertif;
-        $save->gambarSertif = $request->gambarSertif;
-        $save->save();
+        // $nim = $request->cookie('nim');
+
+        $nim = sertifikat::all()->last();
+        $nim_mahasiswa = $nim->nim_mhs;
+        sertifikat::where('nim_mhs',$nim_mahasiswa)
+                ->update(['namaSertif' => $request->namaSertif,
+                'tingkatSertif' => $request->tingkatSertif,
+                'juaraSertif' => $request->juaraSertif,
+                'tanggalSertif' => $request->tanggalSertif,
+                'gambarSertif' => $request->gambarSertif,
+                ]);
+
+               
+        // $save = new sertifikat;
+        // $save->namaSertif = $request->namaSertif;
+        // $save->tingkatSertif = $request->tingkatSertif;
+        // $save->juaraSertif = $request->juaraSertif;
+        // $save->tanggalSertif = $request->tanggalSertif;
+        // $save->gambarSertif = $request->gambarSertif;
+        // $save->save();
         
     }
 
