@@ -21,6 +21,11 @@ Route::get('/inputData', function () {
     return view('inputData');
 });
 
+
+Route::get('/cekSertif', [Controller::class, 'showDataSertif']);
+Route::get('/cekSertif/{id_sertif}', [Controller::class, 'validSertif']);
+Route::get('/cekSertif/tolak/{id_sertif}', [Controller::class, 'tolakSertif']);
+
 Route::get('/data', [Controller::class, 'showDatamhs']);
 Route::get('/data/{id}', [Controller::class, 'editmhs']);
 Route::put('/data/{id}', [Controller::class, 'updateDatamhs']);

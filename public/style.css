@@ -3,6 +3,18 @@ body{
     background-size:cover;
 }
 
+.tabelSertif{
+    display: flex;
+    justify-content: center;
+}
+
+.judul{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color:aliceblue;
+}
+
 .container{
     display: flex;
     justify-content: center;
@@ -23,7 +35,8 @@ tr,th,td{
 }
 
 .button a{
-    margin-left: 1%;
+    margin-left: 0.7%;
+    margin-bottom: 1%;
 }
 
 .button{

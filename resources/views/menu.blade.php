@@ -16,6 +16,9 @@
         <a href="/inputData" class="btn btn-primary btn-lg">Input Data Mahasiswa</a>
         <a href="/data" class="btn btn-primary btn-lg">Edit Data Mahasiswa</a>
     </div>
+    <div class="button">
+        <a href="/cekSertif" class="btn btn-primary btn-lg">Cek Sertifikat Mahasiswa</a>
+    </div>
     
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

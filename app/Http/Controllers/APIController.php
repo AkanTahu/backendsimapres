@@ -18,6 +18,13 @@ class APIController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public $nim_mahasiswa;
+
+    public function test()
+    {
+        $data = api_data::all();
+        return $data;
+    }
 
     public function index()
     {
@@ -50,15 +57,15 @@ class APIController extends Controller
         where('password','=',$password)->first();
         $nim_mahasiswa = $data->nim;
 
-        $masuk = new sertifikat;
-        $masuk->nim_mhs = $nim_mahasiswa;
-        $masuk->save();
+        // $masuk = new sertifikat;
+        // $masuk->nim_mhs = $nim_mahasiswa;
+        // $masuk->save();
 
-        return $nim_mahasiswa;
-        // $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
-        // return response()
-        //     ->json(['success' => "logged in"], 200)   // JsonResponse object
-        //     ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
+        // return $nim_mahasiswa;
+        $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
+        return response()
+            ->json(['success' => "logged in"], 200)   // JsonResponse object
+            ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
 
     }
 
@@ -83,26 +90,30 @@ class APIController extends Controller
     }
     
     public function makeSertif(Request $request){
-        // $nim = $request->cookie('nim');
+        #use awed method
+        $nim = $request->cookie('nim');
+        // $nim_mahasiswa = $nim;
 
-        $nim = sertifikat::all()->last();
-        $nim_mahasiswa = $nim->nim_mhs;
-        sertifikat::where('nim_mhs',$nim_mahasiswa)
-                ->update(['namaSertif' => $request->namaSertif,
-                'tingkatSertif' => $request->tingkatSertif,
-                'juaraSertif' => $request->juaraSertif,
-                'tanggalSertif' => $request->tanggalSertif,
-                'gambarSertif' => $request->gambarSertif,
-                ]);
-
-               
-        // $save = new sertifikat;
-        // $save->namaSertif = $request->namaSertif;
-        // $save->tingkatSertif = $request->tingkatSertif;
+        $save = new sertifikat;
+        $save->nim_mhs = $nim;
+        $save->namaSertif = $request->namaSertif;
+        $save->tingkatSertif = $request->tingkatSertif;
         // $save->juaraSertif = $request->juaraSertif;
-        // $save->tanggalSertif = $request->tanggalSertif;
+        $save->tanggalSertif = $request->tanggalSertif;
         // $save->gambarSertif = $request->gambarSertif;
-        // $save->save();
+        $save->save();
+        #use isal method
+         //$nim = sertifikat::all()->last();
+        // $nim_mahasiswa = $nim->nim_mhs;
+        // $data = sertifikat::where('nim_mhs',$nim_mahasiswa)
+        //         ->update(['namaSertif' => $request->namaSertif,
+        //         'tingkatSertif' => $request->tingkatSertif,
+        //         // 'juaraSertif' => $request->juaraSertif,
+        //         'tanggalSertif' => $request->tanggalSertif,
+        //         // 'gambarSertif' => $request->gambarSertif,
+        //         ]);
+        // $data->save();   
+        
         
     }
 
