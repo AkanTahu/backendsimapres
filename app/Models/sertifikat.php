@@ -10,7 +10,11 @@ class sertifikat extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $primaryKey = 'id_sertif';
+    protected $guarded = ['id_sertif'];
+    // protected $fillable = [
+    //     'namaSertif','nim_mhs','tingkatSertif','juaraSertif','gambarSertif','cek'
+    // ];
 
     public function api_datas(): BelongsTo
     {

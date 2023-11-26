@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 // use Illuminate\Http\JsonResponse;
-// use illuminate\Support\Facades\DB;
+use illuminate\Support\Facades\DB;
 // use Symfony\Component\HttpFoundation\Response;
 // use Symfony\Component\HttpFoundation\Cookie;
 // use Symfony\Component\HttpFoundation\Cookie;
@@ -57,15 +57,15 @@ class APIController extends Controller
         where('password','=',$password)->first();
         $nim_mahasiswa = $data->nim;
 
-        // $masuk = new sertifikat;
-        // $masuk->nim_mhs = $nim_mahasiswa;
-        // $masuk->save();
+        $masuk = new sertifikat;
+        $masuk->nim_mhs = $nim_mahasiswa;
+        $masuk->save();
 
         // return $nim_mahasiswa;
-        $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
-        return response()
-            ->json(['success' => "logged in"], 200)   // JsonResponse object
-            ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
+        // $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
+        // return response()
+        //     ->json(['success' => "logged in"], 200)   // JsonResponse object
+        //     ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
 
     }
 
@@ -91,30 +91,43 @@ class APIController extends Controller
     
     public function makeSertif(Request $request){
         #use awed method
-        $nim = $request->cookie('nim');
+        // $nim = $request->cookie('nim');
         // $nim_mahasiswa = $nim;
 
-        $save = new sertifikat;
-        $save->nim_mhs = $nim;
-        $save->namaSertif = $request->namaSertif;
-        $save->tingkatSertif = $request->tingkatSertif;
-        // $save->juaraSertif = $request->juaraSertif;
-        $save->tanggalSertif = $request->tanggalSertif;
-        // $save->gambarSertif = $request->gambarSertif;
-        $save->save();
+        // $save = new sertifikat;
+        // $save->nim_mhs = $nim_mahasiswa;
+        // $save->namaSertif = $request->namaSertif;
+        // $save->tingkatSertif = $request->tingkatSertif;
+        // $save->tanggalSertif = $request->tanggalSertif;
+        // // $save->juaraSertif = $request->juaraSertif;
+        // // $save->gambarSertif = $request->gambarSertif;
+        // $save->save();
         #use isal method
-         //$nim = sertifikat::all()->last();
-        // $nim_mahasiswa = $nim->nim_mhs;
-        // $data = sertifikat::where('nim_mhs',$nim_mahasiswa)
-        //         ->update(['namaSertif' => $request->namaSertif,
-        //         'tingkatSertif' => $request->tingkatSertif,
-        //         // 'juaraSertif' => $request->juaraSertif,
-        //         'tanggalSertif' => $request->tanggalSertif,
-        //         // 'gambarSertif' => $request->gambarSertif,
-        //         ]);
-        // $data->save();   
+        // $nim = sertifikat::all()->last();
+        // $ids = $nim->nim_mhs;
+        // return $request;
+
+        sertifikat::all()->last()
+        ->update(['namaSertif' => $request->namaSertif,
+        'tingkatSertif' => $request->tingkatSertif,
+        // 'juaraSertif' => $request->juaraSertif,
+        'tanggalSertif' => $request->tanggalSertif,
+        ]);
+        // $data->namaSertif = $request->namaSertif;
+        // $data->tingkatSertif = $request->tingkatSertif;
+        // $data->tanggalSertif = $request->tanggalSertif;
+        // $data->juaraSertif = '';
+        // $data->tingkatSertif = '';
+        // $data->save();
+        
+        // 'gambarSertif' => $request->gambarSertif,
         
         
+        // 
+        // return $nim_mahasiswa;
+                
+        
+        // return 123;
     }
 
     /**
