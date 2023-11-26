@@ -48,6 +48,27 @@ class APIController extends Controller
     //         return response()
     //             ->withCookie($cookie);
     //     }
+    
+    public function loginNotif(Request $request)
+    {
+        $username = $request->username;
+        $password = $request->password;
+        $data = api_data::where('username','=',$username)->
+        where('password','=',$password)->first();
+        $nim_mahasiswa = $data->nim;
+
+        $dataSertif = DB::table('sertifikats')
+                    ->where('nim_mhs',$nim_mahasiswa)
+                    ->get();
+        return $dataSertif;
+
+        // return $nim_mahasiswa;
+        // $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
+        // return response()
+        //     ->json(['success' => "logged in"], 200)   // JsonResponse object
+        //     ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
+
+    }
 
     public function login(Request $request)
     {
@@ -93,15 +114,6 @@ class APIController extends Controller
         #use awed method
         // $nim = $request->cookie('nim');
         // $nim_mahasiswa = $nim;
-
-        // $save = new sertifikat;
-        // $save->nim_mhs = $nim_mahasiswa;
-        // $save->namaSertif = $request->namaSertif;
-        // $save->tingkatSertif = $request->tingkatSertif;
-        // $save->tanggalSertif = $request->tanggalSertif;
-        // // $save->juaraSertif = $request->juaraSertif;
-        // // $save->gambarSertif = $request->gambarSertif;
-        // $save->save();
         #use isal method
         // $nim = sertifikat::all()->last();
         // $ids = $nim->nim_mhs;
@@ -110,23 +122,12 @@ class APIController extends Controller
         sertifikat::all()->last()
         ->update(['namaSertif' => $request->namaSertif,
         'tingkatSertif' => $request->tingkatSertif,
-        // 'juaraSertif' => $request->juaraSertif,
+        'juaraSertif' => $request->juaraSertif,
         'tanggalSertif' => $request->tanggalSertif,
         ]);
-        // $data->namaSertif = $request->namaSertif;
-        // $data->tingkatSertif = $request->tingkatSertif;
-        // $data->tanggalSertif = $request->tanggalSertif;
-        // $data->juaraSertif = '';
-        // $data->tingkatSertif = '';
-        // $data->save();
-        
-        // 'gambarSertif' => $request->gambarSertif,
-        
-        
-        // 
+
         // return $nim_mahasiswa;
-                
-        
+                    
         // return 123;
     }
 

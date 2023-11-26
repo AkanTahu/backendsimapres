@@ -1,7 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\api_data;
+use App\Models\sertifikat;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +35,6 @@ Route::get('/data/{id}', [Controller::class, 'editmhs']);
 Route::put('/data/{id}', [Controller::class, 'updateDatamhs']);
 Route::delete('/data/{id}', [Controller::class, 'hapus']);
 Route::post('/tambah', [Controller::class, 'createmhs']);
+
+Route::get('/mhsrank', [Controller::class, 'workSPK']);
 

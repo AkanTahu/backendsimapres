@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -9,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\api_data;
 use App\Models\sertifikat;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Controller extends BaseController
 {
@@ -49,7 +52,7 @@ class Controller extends BaseController
             $alpha_spk = 4;
         }
         else if ($alpha_spk >= 50){
-            $alpha_spk = 5 ;
+            $alpha_spk = 5 ;    
         }
 
         api_data::create([
@@ -71,7 +74,7 @@ class Controller extends BaseController
 
     public function showDatamhs()
     {
-        $datamhs = api_data::all();
+        $datamhs = api_data::all(); 
         return view('data.editData',compact('datamhs'));
     }
 
@@ -104,6 +107,15 @@ class Controller extends BaseController
         DB::statement('UPDATE api_datas SET id = (@var := @var+1)');
         DB::statement('ALTER TABLE api_datas AUTO_INCREMENT=1');
         return redirect()->intended('/data');
+    }
+
+    public function workSPK()
+    {
+        $data = api_data::all();
+        $response = Http::post('http://127.0.0.1:5000/post-rank',["api_datas"=>$data]);
+        return $response;
+        // return Gpu::all();
+        // return "hello";
     }
 
     public function showDataSertif()

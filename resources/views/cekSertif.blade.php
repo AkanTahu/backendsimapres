@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Halaman Admin SIMAPRES</title>
 </head>
 <body>
@@ -45,8 +48,8 @@
                         <td>{{ $sertif->tanggalSertif }}</td>
                         <td>{{ $sertif->nama }}</td>
                         <td>
-                            <a href="/cekSertif/{{ $sertif->id_sertif }}" class="btn btn-success">VALID</a>
-                            <a href="/cekSertif/tolak/{{ $sertif->id_sertif }}" class="btn btn-danger">TOLAK</a>
+                            <a href="/cekSertif/{{ $sertif->id_sertif }}" id="button1" class="btn btn-success">VALID</a>
+                            <a href="/cekSertif/tolak/{{ $sertif->id_sertif }}" id="button2" class="btn btn-danger">TOLAK</a>
                         </td>
                     </tr>
                 </tbody>
@@ -54,6 +57,24 @@
         </table>
     </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script>
+        document.getElementById('button1').addEventListener('click', function(){
+            Swal.fire({
+            title: "Valid",
+            text: "Data Sertifikat Valid",
+            icon: "success"
+            });
+        })
+      </script>
+      <script>
+        document.getElementById('button2').addEventListener('click', function(){
+            Swal.fire({
+            title: "Tidak Valid",
+            text: "Data Sertifikat Tidak Valid",
+            icon: "error"
+            });
+        })
+      </script>
 </body>
   
 </body>
