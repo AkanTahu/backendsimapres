@@ -33,9 +33,9 @@ Route::post("updateAkun",[APIController::class, "updateAkun"]);
 Route::post("delete_data",[APIController::class, "destroy"]);
 Route::post("all_data",[APIController::class, "index"]);
 
-Route::post("loginNotif",[APIController::class, "loginNotif"]);
+Route::post("loginNotifikasi",[APIController::class, "loginNotif"]);
 
-Route::get('mhsrank', function(){
+Route::get('tesflask', function(){
     $data = api_data::all();
     $response = Http::post('http://127.0.0.1:5000/post-rank',["api_datas"=>$data]);
     return $response;

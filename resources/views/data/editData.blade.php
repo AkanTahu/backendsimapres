@@ -64,7 +64,7 @@
           icon: "success"
           });
       })
-  </script>
+    </script>
 
 </body>
 </html>

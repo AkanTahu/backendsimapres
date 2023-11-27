@@ -184,6 +184,15 @@ class Controller extends BaseController
         sertifikat::where('id_sertif',$id_sertif)
         ->update(['cek' => 2]);
 
+        $datanim = DB::table('sertifikats')
+                    ->join('api_datas','sertifikats.nim_mhs','=','api_datas.nim')
+                    ->where('id_sertif','=',$id_sertif)
+                    ->first();
+
+        $masuk = api_data::where('nim', $datanim->nim_mhs)->first();
+        $masuk->sertifikat = 0;
+        $masuk->save();            
+
         return redirect()->intended('cekSertif');
     }
 }

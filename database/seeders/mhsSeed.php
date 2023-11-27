@@ -1,9 +1,10 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\api_data;
+use App\Models\sertifikat;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\api_data;
 
 class mhsSeed extends Seeder
 {
@@ -18,9 +19,9 @@ class mhsSeed extends Seeder
             'prodi' => 'D3-TM',
             'jurusan' => 'TM',
             'tahunMasuk' => 21,
-            'ipk' => '5',
+            'ipk' => '4',
             'alpha' => '1',
-            'sertifikat' => '3',
+            'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
@@ -32,9 +33,9 @@ class mhsSeed extends Seeder
             'prodi' => 'D3-AB',
             'jurusan' => 'AN',
             'tahunMasuk' => 21,
-            'ipk' => '2',
-            'alpha' => '6',
-            'sertifikat' => '4',
+            'ipk' => '1',
+            'alpha' => '3',
+            'sertifikat' => '0',
             'spk' => 0,
             'username' => 'a',
             'password' => '1',
@@ -46,9 +47,9 @@ class mhsSeed extends Seeder
             'prodi' => 'D4-SIB',
             'jurusan' => 'TI',
             'tahunMasuk' => 21,
-            'ipk' => '12',
+            'ipk' => '3',
             'alpha' => '2',
-            'sertifikat' => '6',
+            'sertifikat' => '0',
             'spk' => 0,
             'username' => 'b',
             'password' => '1',
@@ -60,9 +61,9 @@ class mhsSeed extends Seeder
             'prodi' => 'D3-TT',
             'jurusan' => 'TE',
             'tahunMasuk' => 21,
-            'ipk' => '3',
-            'alpha' => '7',
-            'sertifikat' => '6',
+            'ipk' => '1',
+            'alpha' => '3',
+            'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
@@ -75,8 +76,8 @@ class mhsSeed extends Seeder
             'jurusan' => 'TE',
             'tahunMasuk' => 21,
             'ipk' => '3',
-            'alpha' => '2',
-            'sertifikat' => '6',
+            'alpha' => '4',
+            'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
@@ -90,7 +91,7 @@ class mhsSeed extends Seeder
             'tahunMasuk' => 20,
             'ipk' => '4',
             'alpha' => '2',
-            'sertifikat' => '2',
+            'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
@@ -104,10 +105,28 @@ class mhsSeed extends Seeder
             'tahunMasuk' => 21,
             'ipk' => '5',
             'alpha' => '1',
-            'sertifikat' => '2',
+            'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
+        ]);
+
+        sertifikat::create([
+            'nim_mhs' => 21002,
+            'namaSertif' => 'Sertif Anjali',
+            'tingkatSertif' => 'Nasional',
+            'juaraSertif' => '1',
+            'tanggalSertif' => '2023-11-10',
+            'gambarSertif' => '',
+        ]);
+
+        sertifikat::create([
+            'nim_mhs' => 21003,
+            'namaSertif' => 'Sertif Sudarsono',
+            'tingkatSertif' => 'Provinsi',
+            'juaraSertif' => '2',
+            'tanggalSertif' => '2023-11-6',
+            'gambarSertif' => '',
         ]);
     }
 }

@@ -34,6 +34,7 @@
                     <th scope="col">Juara</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Nama Mahasiswa</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Cek</th>
                 </tr>
             </thead>
@@ -47,6 +48,14 @@
                         <td>{{ $sertif->juaraSertif }}</td>
                         <td>{{ $sertif->tanggalSertif }}</td>
                         <td>{{ $sertif->nama }}</td>
+                        @if ($sertif->cek == 0 )
+                            <td>Belum di Cek</td>
+                        @elseif ($sertif->cek == 1 )
+                            <td>Valid</td>
+                        @elseif ($sertif->cek == 2 )
+                            <td>Ditolak</td>            
+                        @endif
+                        
                         <td>
                             <a href="/cekSertif/{{ $sertif->id_sertif }}" id="button1" class="btn btn-success">VALID</a>
                             <a href="/cekSertif/tolak/{{ $sertif->id_sertif }}" id="button2" class="btn btn-danger">TOLAK</a>
