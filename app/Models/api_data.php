@@ -21,4 +21,9 @@ class api_data extends Model
         return $this->hasMany(sertifikat::class,'nim_mhs','nim');
     }
 
+    public function peringkat()
+    {
+        return $this->hasOne(peringkat::class,'nim_mhs','nim');
+    }
+
 }

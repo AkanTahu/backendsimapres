@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\RedirectResponse;
 use App\Models\api_data;
 use App\Models\sertifikat;
+use App\Models\peringkat;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -113,9 +114,22 @@ class Controller extends BaseController
     {
         $data = api_data::all();
         $response = Http::post('http://127.0.0.1:5000/post-rank',["api_datas"=>$data]);
-        return $response;
-        // return Gpu::all();
-        // return "hello";
+        
+        // foreach (json_decode($response) as $rsp){
+        //     print_r($rsp);
+        // }
+        peringkat::truncate();  
+        
+        foreach (json_decode($response) as $rsp){
+            peringkat::create([
+                'nim_mhs' => $rsp->nimmahas,
+                'score' => $rsp->score,
+                'namamhs' => $rsp->namamahas,
+                'jurusanmhs' => $rsp->jurusanmahas,
+                'prodimhs' => $rsp->prodimahas,    
+            ]);
+        }
+
     }
 
     public function showDataSertif()
@@ -195,4 +209,5 @@ class Controller extends BaseController
 
         return redirect()->intended('cekSertif');
     }
+
 }

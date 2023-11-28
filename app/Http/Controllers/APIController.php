@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\api_data;
+use App\Models\peringkat;
 use App\Models\sertifikat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
+// use Illuminate\Http\JsonResponse;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-// use Illuminate\Http\JsonResponse;
-use illuminate\Support\Facades\DB;
 // use Symfony\Component\HttpFoundation\Response;
 // use Symfony\Component\HttpFoundation\Cookie;
 // use Symfony\Component\HttpFoundation\Cookie;
@@ -22,7 +25,7 @@ class APIController extends Controller
 
     public function test()
     {
-        $data = api_data::all();
+        $data = sertifikat::all();
         return $data;
     }
 
@@ -32,8 +35,10 @@ class APIController extends Controller
         return $data;
     }
 
-    public function top5(){
-        $data = api_data::all()->take(5);
+    public function top5()
+    {
+        $data = peringkat::all()->take(5);
+
         return $data;    
     }
 
