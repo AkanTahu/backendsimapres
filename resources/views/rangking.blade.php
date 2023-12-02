@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
-    <title>Halaman Admin SIMAPRES</title>
+    <title>Peringkat SIMAPRES</title>
 </head>
 <body>
 
@@ -25,42 +25,29 @@
     </div>
 
     <div class="judul">
-      <h3>Data Mahasiswa</h3>
+      <h3>Rangking Mahasiswa</h3>
     </div>
 
     <div class="container">
         <table class="table" style="background-color: #333">
             <thead>
               <tr>
+                <th scope="col">Peringkat</th>
                 <th scope="col">Nama</th>
-                <th scope="col">NIM</th>
                 <th scope="col">Jurusan</th>
                 <th scope="col">Prodi</th>
-                <th scope="col">Tahun Masuk</th>
-                <th scope="col">IPK</th>
-                <th scope="col">Alpha</th>
-                <th scope="col">Edit</th>
+                <th scope="col">Score SPK</th>
               </tr>  
             </thead>
 
             @foreach ($datamhs as $mhs)
             <tbody>
                 <tr>
-                    <th>{{ $mhs->nama }}</th>
-                    <td>{{ $mhs->nim }}</td>
-                    <td>{{ $mhs->jurusan }}</td>
-                    <td>{{ $mhs->prodi }}</td>
-                    <td>{{ $mhs->tahunMasuk }}</td>
-                    <td>{{ $mhs->ipk }}</td>
-                    <td>{{ $mhs->alpha }}</td>
-                    <td>
-                        <a href="/data/{{ $mhs->id }}"  class="btn btn-secondary">UBAH</a>
-                        <form class="d-inline" action="/data/{{ $mhs->id }}" method="POST">
-                          @csrf
-                          <input type="hidden" name="_method" value="DELETE">
-                          <button type="submit" id="button1" class="btn btn-danger">DELETE</button>
-                        </form>
-                      </td>
+                    <th>{{ $mhs->id_peringkat }}</th>
+                    <th>{{ $mhs->namamhs }}</th>
+                    <td>{{ $mhs->jurusanmhs }}</td>
+                    <td>{{ $mhs->prodimhs }}</td>
+                    <td>{{ $mhs->score }}</td>
                 </tr>
             </tbody>
             @endforeach        

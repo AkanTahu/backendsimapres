@@ -37,4 +37,5 @@ Route::delete('/data/{id}', [Controller::class, 'hapus']);
 Route::post('/tambah', [Controller::class, 'createmhs']);
 
 Route::get('/mhsrank', [Controller::class, 'workSPK']);
+Route::get('/rangking', [Controller::class, 'showRangking']);
 

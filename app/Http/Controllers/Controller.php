@@ -18,6 +18,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
+    public function showRangking()
+    {
+        $datamhs = peringkat::all(); 
+        return view('rangking',compact('datamhs'));
+    }
+
     public function createmhs(Request $req){
         $ipk_spk = 0;
         $ipk_spk = (float)$req->ipk;

@@ -12,6 +12,13 @@
     <title>Halaman Admin SIMAPRES</title>
 </head>
 <body>
+    <div class="topnav">
+        <a href="/data">Data Mahasiswa</a>
+        <a href="#Prestasi">Data Prestasi</a>
+        <a href="/cekSertif">Cek Sertifikat</a>
+        <a href="/rangking">Rangking</a>
+      </div>
+
     <div class="image">
         <a href="/"><img src="/SIMAPRESputih.png" alt=""></a>
     </div>

@@ -10,9 +10,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
-    <title>Halaman Admin SIMAPRES</title>
+    <title>Cek Sertifikat SIMAPRES</title>
 </head>
 <body>
+
+    <div class="topnav">
+        <a href="/data">Data Mahasiswa</a>
+        <a href="#Prestasi">Data Prestasi</a>
+        <a href="/cekSertif">Cek Sertifikat</a>
+        <a href="/rangking">Rangking</a>
+      </div>
 
     <div class="image">
         <a href="/"><img src="/SIMAPRESputih.png" alt=""></a>
