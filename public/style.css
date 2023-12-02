@@ -45,6 +45,12 @@ tr,th,td{
     justify-content: center;
 }
 
+.buttonrefresh{
+  display: flex;
+  justify-content: center;
+  padding: 0.6%;
+}
+
 .image img{
     width: 20%;
 }

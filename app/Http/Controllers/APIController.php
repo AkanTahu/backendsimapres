@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\log;
 use App\Models\api_data;
 use App\Models\peringkat;
 use App\Models\sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Route;
 // use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Route;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 // use Symfony\Component\HttpFoundation\Response;
@@ -42,17 +43,6 @@ class APIController extends Controller
         return $data;    
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    // public function setCookie()
-    //     {
-    //         $cookieValue = 'Hello, Laravel 10 Cookies!';
-    //         $cookie = cookie('cookie_name', $cookieValue, $minutes = 60);
-            
-    //         return response()
-    //             ->withCookie($cookie);
-    //     }
     
     public function loginNotif(Request $request)
     {
@@ -62,11 +52,9 @@ class APIController extends Controller
         where('password','=',$password)->first();
         $nim_mahasiswa = $data->nim;
 
-        $dataSertif = DB::table('sertifikats')
-                    ->where('nim_mhs',$nim_mahasiswa)
-                    ->get();
-        return $dataSertif;
-
+        $tambah = new log;
+        $tambah->log = $nim_mahasiswa;
+        $tambah->save();
         // return $nim_mahasiswa;
         // $cookie = cookie('nim', $nim_mahasiswa, $minutes = 60);
         // return response()
@@ -93,6 +81,16 @@ class APIController extends Controller
         //     ->json(['success' => "logged in"], 200)   // JsonResponse object
         //     ->withCookie(cookie('nim', $nim_mahasiswa, $minutes = 60));
 
+    }
+
+    public function showNotif(){
+        $log = log::all()->last();
+        $logs = $log->log;
+
+        $data = DB::table('sertifikats')
+        ->where('nim_mhs','=',$logs)->get();
+
+        return $data;
     }
 
     /**

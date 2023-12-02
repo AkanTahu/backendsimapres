@@ -136,6 +136,8 @@ class Controller extends BaseController
             ]);
         }
 
+        return redirect()->intended('rangking');
+
     }
 
     public function showDataSertif()

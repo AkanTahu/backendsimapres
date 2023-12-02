@@ -33,6 +33,8 @@ Route::post("updateAkun",[APIController::class, "updateAkun"]);
 Route::post("delete_data",[APIController::class, "destroy"]);
 Route::post("all_data",[APIController::class, "index"]);
 
+Route::post("showNotif",[APIController::class, "showNotif"]);
+
 Route::post("loginNotifikasi",[APIController::class, "loginNotif"]);
 
 Route::get('tesflask', function(){

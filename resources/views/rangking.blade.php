@@ -28,6 +28,11 @@
       <h3>Rangking Mahasiswa</h3>
     </div>
 
+    <div class="buttonrefresh">
+      <a href="/mhsrank" class="btn btn-secondary btn-lg">Refresh</a>
+    </div>
+    
+
     <div class="container">
         <table class="table" style="background-color: #333">
             <thead>
