@@ -19,11 +19,14 @@ return new class extends Migration
             $table->string('jurusan');
             $table->integer('tahunMasuk');
             $table->integer('ipk');
+            $table->decimal('ipkORI');
             $table->integer('alpha');
+            $table->integer('alphaORI');
             $table->integer('sertifikat');
             $table->decimal('spk');
             $table->string('username');
             $table->string('password');
+            $table->string('gambar');
             $table->timestamps();
         });
     }
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('api_datas');
     }
 };

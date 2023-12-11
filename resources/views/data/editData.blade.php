@@ -15,7 +15,7 @@
 
   <div class="topnav">
     <a href="/data">Data Mahasiswa</a>
-    <a href="#Prestasi">Data Prestasi</a>
+    <a href="/cekSertifsaja">Data Prestasi</a>
     <a href="/cekSertif">Cek Sertifikat</a>
     <a href="/rangking">Rangking</a>
   </div>
@@ -28,17 +28,22 @@
       <h3>Data Mahasiswa</h3>
     </div>
 
+    <div class="judul">
+      <a class="btn btn-success" href="/inputData" role="button">Tambah</a>
+    </div>
+    
     <div class="container">
         <table class="table" style="background-color: #333">
             <thead>
               <tr>
+                <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">NIM</th>
                 <th scope="col">Jurusan</th>
                 <th scope="col">Prodi</th>
                 <th scope="col">Tahun Masuk</th>
                 <th scope="col">IPK</th>
-                <th scope="col">Alpha</th>
+                <th scope="col">Alpha (hari)</th>
                 <th scope="col">Edit</th>
               </tr>  
             </thead>
@@ -51,8 +56,8 @@
                     <td>{{ $mhs->jurusan }}</td>
                     <td>{{ $mhs->prodi }}</td>
                     <td>{{ $mhs->tahunMasuk }}</td>
-                    <td>{{ $mhs->ipk }}</td>
-                    <td>{{ $mhs->alpha }}</td>
+                    <td>{{ $mhs->ipkORI }}</td>
+                    <td>{{ $mhs->alphaORI }}</td>
                     <td>
                         <a href="/data/{{ $mhs->id }}"  class="btn btn-secondary">UBAH</a>
                         <form class="d-inline" action="/data/{{ $mhs->id }}" method="POST">

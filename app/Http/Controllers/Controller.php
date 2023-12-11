@@ -62,9 +62,17 @@ class Controller extends BaseController
             $alpha_spk = 5 ;    
         }
 
+        $nimORI = $req->nim;
+        $req->validate([
+            'fotomhs.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
+        ]);
+           
+        $fotomhs = $nimORI.'_fotoprofil.'. $req->file('fotomhs')->getClientOriginalExtension();
+        $req->file('fotomhs')->move(public_path('images'), $fotomhs);
+
         api_data::create([
             'nama' => $req->nama,
-            'nim' => $req->nim,
+            'nim' => $nimORI,
             'tahunMasuk' => $req->tahunMasuk,
             'prodi' => $req->prodi,
             'jurusan' => $req->jurusan,
@@ -74,6 +82,9 @@ class Controller extends BaseController
             'sertifikat' => 0,
             'username' => '',
             'password' => '',
+            'ipkORI' => $req->ipk,
+            'alphaORI' => $req->alpha,
+            'gambar' => $fotomhs,
         ]);
 
         return redirect()->intended('/inputData');
@@ -148,6 +159,14 @@ class Controller extends BaseController
         return view('cekSertif',compact('dataSertif'));
     }
 
+    public function showDataSertifsaja()
+    {
+        $dataSertif = DB::table('sertifikats')
+                    ->join('api_datas','sertifikats.nim_mhs','=','api_datas.nim')
+                    ->get();
+        return view('dataPrestasi',compact('dataSertif'));
+    }
+
     public function validSertif($id_sertif)
     {
         sertifikat::where('id_sertif',$id_sertif)
@@ -217,5 +236,4 @@ class Controller extends BaseController
 
         return redirect()->intended('cekSertif');
     }
-
 }

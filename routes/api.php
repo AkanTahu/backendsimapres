@@ -34,8 +34,10 @@ Route::post("delete_data",[APIController::class, "destroy"]);
 Route::post("all_data",[APIController::class, "index"]);
 
 Route::post("showNotif",[APIController::class, "showNotif"]);
-
 Route::post("loginNotifikasi",[APIController::class, "loginNotif"]);
+
+Route::post("pilihJus",[APIController::class, "chooseJurusan"]);
+Route::post("showrankJus",[APIController::class, "showrangkingJurusan"]);
 
 Route::get('tesflask', function(){
     $data = api_data::all();

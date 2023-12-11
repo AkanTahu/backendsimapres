@@ -1,5 +1,5 @@
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="judul">
-        <h3>Cek Sertifikat Mahasiswa</h3>
+        <h3>Data Prestasi Mahasiswa</h3>
     </div>
     
 
@@ -37,12 +37,11 @@
                     <th scope="col">No</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Nama Sertifikat</th>
-                    <th scope="col">Tingkat</th>
+                    <th scope="col">    Tingkat</th>
                     <th scope="col">Juara</th>
-                    <th scope="col">Tanggal</th>
                     <th scope="col">Nama Mahasiswa</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Cek</th>
+                    <th scope="col">Jurusan</th>
+                    <th scope="col">Prodi</th>
                 </tr>
             </thead>
             @foreach ($dataSertif as $sertif)
@@ -53,20 +52,9 @@
                         <td>{{ $sertif->namaSertif }}</td>
                         <td>{{ $sertif->tingkatSertif }}</td>
                         <td>{{ $sertif->juaraSertif }}</td>
-                        <td>{{ $sertif->tanggalSertif }}</td>
                         <td>{{ $sertif->nama }}</td>
-                        @if ($sertif->cek == 0 )
-                            <td>Belum di Cek</td>
-                        @elseif ($sertif->cek == 1 )
-                            <td>Valid</td>
-                        @elseif ($sertif->cek == 2 )
-                            <td>Ditolak</td>            
-                        @endif
-                        
-                        <td>
-                            <a href="/cekSertif/{{ $sertif->id_sertif }}" id="button1" class="btn btn-success">VALID</a>
-                            <a href="/cekSertif/tolak/{{ $sertif->id_sertif }}" id="button2" class="btn btn-danger">TOLAK</a>
-                        </td>
+                        <td>{{ $sertif->prodi }}</td>
+                        <td>{{ $sertif->jurusan }}</td>
                     </tr>
                 </tbody>
                 @endforeach

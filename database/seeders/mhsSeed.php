@@ -19,12 +19,15 @@ class mhsSeed extends Seeder
             'prodi' => 'D3-TM',
             'jurusan' => 'TM',
             'tahunMasuk' => 21,
-            'ipk' => '4',
-            'alpha' => '1',
+            'ipk' => 4,
+            'alpha' => 1,
             'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
+            'ipkORI' => 3.4,
+            'alphaORI' => 2,
+            'gambar' => '',
         ]);
 
         api_data::create([
@@ -33,12 +36,15 @@ class mhsSeed extends Seeder
             'prodi' => 'D3-AB',
             'jurusan' => 'AN',
             'tahunMasuk' => 21,
-            'ipk' => '1',
-            'alpha' => '3',
+            'ipk' => 2,
+            'alpha' => 3,
             'sertifikat' => '0',
             'spk' => 0,
             'username' => 'a',
             'password' => '1',
+            'ipkORI' => 2.8,
+            'alphaORI' => 3,
+            'gambar' => '',
         ]);
 
         api_data::create([
@@ -47,12 +53,15 @@ class mhsSeed extends Seeder
             'prodi' => 'D4-SIB',
             'jurusan' => 'TI',
             'tahunMasuk' => 21,
-            'ipk' => '3',
-            'alpha' => '2',
+            'ipk' => 3,
+            'alpha' => 2,
             'sertifikat' => '0',
             'spk' => 0,
             'username' => 'b',
             'password' => '1',
+            'ipkORI' => 3.2,
+            'alphaORI' => 6,
+            'gambar' => '',
         ]);
 
         api_data::create([
@@ -61,12 +70,15 @@ class mhsSeed extends Seeder
             'prodi' => 'D3-TT',
             'jurusan' => 'TE',
             'tahunMasuk' => 21,
-            'ipk' => '1',
-            'alpha' => '3',
+            'ipk' => 3,
+            'alpha' => 3,
             'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
+            'ipkORI' => 3.3,
+            'alphaORI' => 10,
+            'gambar' => '',
         ]);
 
         api_data::create([
@@ -75,12 +87,15 @@ class mhsSeed extends Seeder
             'prodi' => 'D4-JTD',
             'jurusan' => 'TE',
             'tahunMasuk' => 21,
-            'ipk' => '3',
-            'alpha' => '4',
+            'ipk' => 3,
+            'alpha' => 4,
             'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
+            'ipkORI' => 3.2,
+            'alphaORI' => 15,
+            'gambar' => '',
         ]);
 
         api_data::create([
@@ -89,12 +104,15 @@ class mhsSeed extends Seeder
             'prodi' => 'D4-AKM',
             'jurusan' => 'AK',
             'tahunMasuk' => 20,
-            'ipk' => '4',
-            'alpha' => '2',
+            'ipk' => 4,
+            'alpha' => 2,
             'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
+            'ipkORI' => 3.4,
+            'alphaORI' => 2,
+            'gambar' => '',
         ]);
 
         api_data::create([
@@ -103,12 +121,15 @@ class mhsSeed extends Seeder
             'prodi' => 'D3-TK',
             'jurusan' => 'TK',
             'tahunMasuk' => 21,
-            'ipk' => '5',
-            'alpha' => '1',
+            'ipk' => 5,
+            'alpha' => 1,
             'sertifikat' => '0',
             'spk' => 0,
             'username' => '',
             'password' => '',
+            'ipkORI' => 3.7,
+            'alphaORI' => 2,
+            'gambar' => '',
         ]);
 
         sertifikat::create([

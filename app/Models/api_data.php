@@ -12,9 +12,11 @@ class api_data extends Model
 
     // protected $primaryKey = 'id';
 
-    protected $fillable = [
-        'nama','nim','prodi','jurusan','tahunMasuk','alpha','ipk','sertifikat','spk','username','password'
-    ];
+    protected $guarded = ['id'];
+
+    // protected $fillable = [
+    //     'nama','nim','prodi','jurusan','tahunMasuk','alpha','ipk','sertifikat','spk','username','password'
+    // ];
 
     public function sertifikats()
     {

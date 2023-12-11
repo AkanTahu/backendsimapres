@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\log;
+use App\Models\rankJus;
 use App\Models\api_data;
 use App\Models\peringkat;
 use App\Models\sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
 // use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -24,12 +25,6 @@ class APIController extends Controller
      */
     public $nim_mahasiswa;
 
-    public function test()
-    {
-        $data = sertifikat::all();
-        return $data;
-    }
-
     public function index()
     {
         $data = api_data::all();
@@ -41,6 +36,53 @@ class APIController extends Controller
         $data = peringkat::all()->take(5);
 
         return $data;    
+    }
+
+    public function chooseJurusan(Request $request){
+        $pilihanJurusan = $request->jurusanmhs;
+
+        if ($pilihanJurusan == 'Teknik Mesin'){
+            $pilihanJurusan = 'TM';
+        }else if ($pilihanJurusan == 'Teknologi Informasi'){
+            $pilihanJurusan = 'TI';
+        }else if ($pilihanJurusan == 'Akuntansi'){
+            $pilihanJurusan = 'AKT';
+        }else if ($pilihanJurusan == 'Teknik Elektro'){
+            $pilihanJurusan = 'TE';
+        }else if ($pilihanJurusan == 'Teknik Kimia'){
+            $pilihanJurusan = 'TK';
+        }else if ($pilihanJurusan == 'Administrasi Niaga'){
+            $pilihanJurusan = 'AN';
+        }else if ($pilihanJurusan == 'Teknik Sipil'){
+            $pilihanJurusan = 'TS';
+        }
+            
+
+        $tambah = new log;
+        $tambah->log = $pilihanJurusan;
+        $tambah->save();
+    }
+
+    public function showrangkingJurusan(){
+        $log = log::all()->last();
+        $logs = $log->log;
+
+        $data1 = peringkat::where('jurusanmhs','=',$logs)->orderby('score', 'desc')->get();
+
+        rankJus::truncate();  
+
+        foreach ($data1 as $rsp){
+            rankJus::create([
+                'nim_mhs' => $rsp->nim_mhs,
+                'namamhs' => $rsp->namamhs,
+                'prodimhs' => $rsp->prodimhs,    
+                'jurusanmhs' => $rsp->jurusanmhs,    
+            ]);
+        }
+
+        $data = rankJus::all();
+
+        return $data;
     }
 
     
@@ -185,4 +227,6 @@ class APIController extends Controller
         $del->delete();
         return "work delete";
     }
+
+    
 }

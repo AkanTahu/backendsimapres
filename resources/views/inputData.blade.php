@@ -14,7 +14,7 @@
 <body>
     <div class="topnav">
         <a href="/data">Data Mahasiswa</a>
-        <a href="#Prestasi">Data Prestasi</a>
+        <a href="/cekSertifsaja">Data Prestasi</a>
         <a href="/cekSertif">Cek Sertifikat</a>
         <a href="/rangking">Rangking</a>
       </div>
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12 mt-1">
                 <h3>Form Tambah Mahasiswa</h3>
-                <form action="/tambah" method="post">
+                <form action="/tambah" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama Mahasiswa</label>
@@ -70,6 +70,10 @@
                         <label for="kelas">Ketidak Hadiran (Alpha)</label>
                         <input class="form-control" type="text" name="alpha" id="alpha" placeholder="masukkan alpha">
                     </div>
+                    <div class="input-group mb-3 mt-3 ">
+                        <label class="input-group-text" for="inputGroupFile01">Upload Foto Mahasiswa</label>
+                        <input type="file" name="fotomhs" class="form-control" id="inputGroupFile01">
+                      </div>
                     <div class="form-group float-right">
                         <button class="btn btn-lg btn-danger" type="reset">Reset</button>
                         <button id="button1" class="btn btn-lg btn-primary" type="submit">Submit</button>

@@ -27,6 +27,7 @@ Route::get('/inputData', function () {
 
 
 Route::get('/cekSertif', [Controller::class, 'showDataSertif']);
+Route::get('/cekSertifsaja', [Controller::class, 'showDataSertifsaja']);
 Route::get('/cekSertif/{id_sertif}', [Controller::class, 'validSertif']);
 Route::get('/cekSertif/tolak/{id_sertif}', [Controller::class, 'tolakSertif']);
 

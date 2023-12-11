@@ -13,7 +13,7 @@
 
   <div class="topnav">
     <a href="/data">Data Mahasiswa</a>
-    <a href="#Prestasi">Data Prestasi</a>
+    <a href="/cekSertifsaja">Data Prestasi</a>
     <a href="/cekSertif">Cek Sertifikat</a>
     <a href="/rangking">Rangking</a>
   </div>
@@ -21,13 +21,13 @@
     <div class="image">
         <a href="/"><img src="/SIMAPRESputih.png" alt=""></a>
     </div>
-    <div class="button">
+    {{-- <div class="button">
         <a href="/inputData" class="btn btn-primary btn-lg">Input Data Mahasiswa</a>
         <a href="/data" class="btn btn-primary btn-lg">Edit Data Mahasiswa</a>
     </div>
     <div class="button">
         <a href="/cekSertif" class="btn btn-primary btn-lg">Cek Sertifikat Mahasiswa</a>
-    </div>
+    </div> --}}
     
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
