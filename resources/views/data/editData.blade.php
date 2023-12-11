@@ -46,7 +46,7 @@
             @foreach ($datamhs as $mhs)
             <tbody>
                 <tr>
-                    <th>{{ $mhs->nama }}</th>
+                <th><a href="/detail_mhs">{{ $mhs->nama }}</a></th>
                     <td>{{ $mhs->nim }}</td>
                     <td>{{ $mhs->jurusan }}</td>
                     <td>{{ $mhs->prodi }}</td>
