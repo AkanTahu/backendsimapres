@@ -32,9 +32,7 @@ Route::get('/cekSertif/{id_sertif}', [Controller::class, 'validSertif']);
 Route::get('/cekSertif/tolak/{id_sertif}', [Controller::class, 'tolakSertif']);
 
 Route::get('/data', [Controller::class, 'showDatamhs']);
-Route::get('/detail_mhs', function () {
-    return view('data.detail_mhs');
-});
+Route::get('/detail_mhs/{id}', [Controller::class, 'detailmhs']);
 Route::get('/data/{id}', [Controller::class, 'editmhs']);
 Route::put('/data/{id}', [Controller::class, 'updateDatamhs']);
 Route::delete('/data/{id}', [Controller::class, 'hapus']);

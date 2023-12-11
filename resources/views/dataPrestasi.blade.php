@@ -37,7 +37,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Nama Sertifikat</th>
-                    <th scope="col">    Tingkat</th>
+                    <th scope="col">Tingkat</th>
                     <th scope="col">Juara</th>
                     <th scope="col">Nama Mahasiswa</th>
                     <th scope="col">Jurusan</th>

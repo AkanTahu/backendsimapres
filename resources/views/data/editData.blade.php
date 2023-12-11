@@ -51,7 +51,8 @@
             @foreach ($datamhs as $mhs)
             <tbody>
                 <tr>
-                <th><a href="/detail_mhs">{{ $mhs->nama }}</a></th>
+                    <td>{{ $mhs->id }}</td>
+                    <td><a href="/detail_mhs/{{ $mhs->id }}">{{ $mhs->nama }}</a></td>
                     <td>{{ $mhs->nim }}</td>
                     <td>{{ $mhs->jurusan }}</td>
                     <td>{{ $mhs->prodi }}</td>
@@ -65,7 +66,7 @@
                           <input type="hidden" name="_method" value="DELETE">
                           <button type="submit" id="button1" class="btn btn-danger">DELETE</button>
                         </form>
-                      </td>
+                    </td>
                 </tr>
             </tbody>
             @endforeach        

@@ -95,6 +95,17 @@ class Controller extends BaseController
         $datamhs = api_data::all(); 
         return view('data.editData',compact('datamhs'));
     }
+    public function detailmhs($id)
+    {
+        $data = api_data::find($id);
+
+        $datamhs = api_data::find($id)
+        ->join('peringkats','api_datas.nim','=','peringkats.nim_mhs')
+        ->join('sertifikats','api_datas.nim','=','sertifikats.nim_mhs')
+        ->where('nim',$data->nim)->first();
+        // return $datamhs;
+        return view('data.detail_mhs',compact('datamhs'));
+    }
 
     public function editmhs($id)
     {
