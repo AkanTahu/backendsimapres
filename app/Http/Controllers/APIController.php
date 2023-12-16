@@ -38,6 +38,30 @@ class APIController extends Controller
         return $data;    
     }
 
+    public function inputnim(Request $request)
+    {
+        $nim = $request->nim;
+
+        $tambah = new log;
+        $tambah->log = $nim;
+        $tambah->save();
+  
+    }
+
+    public function showRangkingSaya()
+    {
+        $log = log::all()->last();
+        $logs = $log->log;
+
+        $datamhs = DB::table('api_datas')
+        ->join('peringkats','api_datas.nim','=','peringkats.nim_mhs')
+        ->join('sertifikats','api_datas.nim','=','sertifikats.nim_mhs')
+        ->where('nim',$logs)->get();
+
+        return $datamhs;
+  
+    }
+
     public function chooseJurusan(Request $request){
         $pilihanJurusan = $request->jurusanmhs;
 

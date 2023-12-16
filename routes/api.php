@@ -36,6 +36,9 @@ Route::post("all_data",[APIController::class, "index"]);
 Route::post("showNotif",[APIController::class, "showNotif"]);
 Route::post("loginNotifikasi",[APIController::class, "loginNotif"]);
 
+Route::post("inputnim",[APIController::class, "inputnim"]);
+Route::post("RangkingSaya",[APIController::class, "showRangkingSaya"]);
+
 Route::post("pilihJus",[APIController::class, "chooseJurusan"]);
 Route::post("showrankJus",[APIController::class, "showrangkingJurusan"]);
 
