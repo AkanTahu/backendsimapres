@@ -67,7 +67,7 @@ class Controller extends BaseController
             'fotomhs.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
         ]);
            
-        $fotomhs = $nimORI.'_fotoprofil.'. $req->file('fotomhs')->getClientOriginalExtension();
+        $fotomhs = $nimORI.'_fp.'. $req->file('fotomhs')->getClientOriginalExtension();
         $req->file('fotomhs')->move(public_path('images'), $fotomhs);
 
         api_data::create([
@@ -95,15 +95,18 @@ class Controller extends BaseController
         $datamhs = api_data::all(); 
         return view('data.editData',compact('datamhs'));
     }
+
     public function detailmhs($id)
     {
         $data = api_data::find($id);
 
-        $datamhs = api_data::find($id)
+        // return $data->nim;
+
+        $datamhs = DB::table('api_datas')
         ->join('peringkats','api_datas.nim','=','peringkats.nim_mhs')
         ->join('sertifikats','api_datas.nim','=','sertifikats.nim_mhs')
         ->where('nim',$data->nim)->first();
-        // return $datamhs;
+ 
         return view('data.detail_mhs',compact('datamhs'));
     }
 

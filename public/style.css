@@ -107,6 +107,17 @@ label {
   height: 300px;
 }
 
+.photo-st {
+  display: flex;
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+  height: 200px;
+  margin-left: 60px;
+}
+
 h3{
   font-size: 100px;
 }

@@ -34,7 +34,6 @@
         <table class="table table-dark table-sm">
             <thead>
                 <tr>
-                    <th scope="col">No</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Nama Sertifikat</th>
                     <th scope="col">Tingkat</th>
@@ -47,8 +46,11 @@
             @foreach ($dataSertif as $sertif)
                 <tbody>
                     <tr>
-                        <th>{{ $sertif->id_sertif }}</th>
-                        <td>{{ $sertif->gambarSertif }}</td>
+                        <td>
+                            <div class="photo-st">
+                                <img src="/sertifikat/{{ $sertif->nim }}_st.png">
+                            </div>
+                        </td>
                         <td>{{ $sertif->namaSertif }}</td>
                         <td>{{ $sertif->tingkatSertif }}</td>
                         <td>{{ $sertif->juaraSertif }}</td>

@@ -20,7 +20,7 @@
                 <h1>Detail Mahasiswa</h1>
             </div>    
                 <div class="photo-box">
-                    <img src="/images/{{ $datamhs->nim }}_fotoprofil.jpg">
+                    <img src="/fotoprofil/{{ $datamhs->nim }}_fp.png">
                 </div>
                 <div class="judul">
                     <h2>{{ $datamhs->nama }}</h2>

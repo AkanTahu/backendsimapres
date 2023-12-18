@@ -49,7 +49,11 @@
                 <tbody>
                     <tr>
                         <th>{{ $sertif->id_sertif }}</th>
-                        <td>{{ $sertif->gambarSertif }}</td>
+                        <td>
+                            <div class="photo-st">
+                                <img src="/sertifikat/{{ $sertif->nim }}_st.png">
+                            </div>
+                        </td>
                         <td>{{ $sertif->namaSertif }}</td>
                         <td>{{ $sertif->tingkatSertif }}</td>
                         <td>{{ $sertif->juaraSertif }}</td>
